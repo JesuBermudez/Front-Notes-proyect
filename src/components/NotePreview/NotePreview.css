@@ -1,0 +1,107 @@
+.note-preview {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+  min-height: 140px;
+}
+
+.note-preview:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.note-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.note-preview.urgent::before {
+  background: rgba(var(--color-urgent), 1);
+}
+
+.note-preview.normal::before {
+  background: rgba(var(--color-normal), 0.5);
+}
+
+.note-preview.recurring::before {
+  background: rgba(var(--color-recurring), 0.5);
+}
+
+.note-preview h3 {
+  padding-right: 0.45em;
+  margin-top: 0.3em;
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: #222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-preview p {
+  flex: 1;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.note-menu {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.menu-options {
+  position: absolute;
+  right: 0;
+  margin-top: 4px;
+  list-style: none;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  z-index: 10;
+
+  ul {
+    border-radius: 6px;
+  }
+}
+
+.menu-options li {
+  color: var(--color-primary);
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-options li:hover {
+  background: #f3f3f3;
+}

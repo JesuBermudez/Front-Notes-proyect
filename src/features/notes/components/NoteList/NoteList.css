@@ -1,0 +1,27 @@
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1em;
+  padding: 1.5em 1em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.notes-type-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 280px));
+  gap: 1.5em;
+  padding: 0 1em;
+  margin-top: 1.2em;
+}
+
+.notes-type-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.notes-type-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}

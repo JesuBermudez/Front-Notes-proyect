@@ -1,0 +1,36 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-bg: #222831;
+  --color-primary: #393e46;
+  --color-secondary: #948979;
+  --color-accent: #f6efd2;
+  --color-urgent: 220, 38, 38;
+  --color-normal: 16, 185, 129;
+  --color-recurring: 245, 158, 11;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  min-width: 1015px;
+  height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-accent);
+}
+
+.urgent {
+  --note-color: var(--color-urgent);
+}
+.normal {
+  --note-color: var(--color-normal);
+}
+.recurring {
+  --note-color: var(--color-recurring);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+}

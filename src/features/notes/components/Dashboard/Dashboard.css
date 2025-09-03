@@ -1,0 +1,32 @@
+.dashboard {
+  height: 100%;
+  padding: 1.3em 2em;
+}
+
+.dashboard-header {
+  padding: 1.3em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-secondary);
+
+  h2 {
+    margin: 0;
+    padding-bottom: 5px;
+  }
+
+  button {
+    font: 1.8em sans-serif;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    border: none;
+    padding: 0.1em 0.5em;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 1;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
