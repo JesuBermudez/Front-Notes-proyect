@@ -12,9 +12,7 @@ export default function Router() {
       <Routes>
         <Route
           path="/"
-          element={
-            !isAuthenticated ? <App /> : <Navigate to="/login" replace />
-          }
+          element={isAuthenticated ? <App /> : <Navigate to="/login" replace />}
         />
         <Route
           path="/login"
