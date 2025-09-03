@@ -2,10 +2,12 @@ import { useState } from "react";
 import type { Note } from "../../features/notes/types";
 import { createNote } from "../../features/notes/services/createNote";
 import { editNote } from "../../features/notes/services/editNote";
-import { ChkeckIcon } from "../icons/Check";
+import { CheckIcon } from "../icons/Check";
 import { CloseIcon } from "../icons/Close";
 import { EditIcon } from "../icons/Edit";
+import { EventCheckIcon } from "../icons/EventCheck";
 import "./NewNote.css";
+import { EventIcon } from "../icons/Event";
 
 interface HandleModalProps {
   note?: Note;
@@ -26,16 +28,23 @@ export function NewNote({
       title: "",
       description: "",
       type: "normal",
-      completed: false,
       date: new Date().toISOString(),
+      remember: false,
+      participants: [],
     }
   );
   const formIcon =
     mode === "view" ? (
       <EditIcon className="new-note-edit-icon" />
     ) : (
-      <ChkeckIcon className="new-note-check-icon" />
+      <CheckIcon className="new-note-check-icon" />
     );
+
+  const eventIcon = newNote.remember ? (
+    <EventIcon className="new-note-event-icon" />
+  ) : (
+    <EventCheckIcon className="new-note-eventcheck-icon" />
+  );
   const disabled = mode === "view";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -46,7 +55,12 @@ export function NewNote({
         toggleNewNote("edit", newNote);
         break;
       case "create":
-        response = await createNote(newNote);
+        const eventNote = {
+          message: newNote.title + " - " + newNote.description,
+          type: newNote.type,
+          remember: newNote.remember,
+        };
+        response = await createNote(eventNote);
         if (response === "Error creating note") {
           alert("Error al crear la nota. Por favor, inténtalo de nuevo.");
           return;
@@ -149,8 +163,23 @@ export function NewNote({
                 />
                 Recurrente
               </label>
+              <button
+                type="button"
+                onClick={() =>
+                  setNewNote({
+                    ...newNote,
+                    remember: !newNote.remember,
+                  })
+                }
+                className="form-event-button"
+                disabled={disabled}
+              >
+                {eventIcon}
+              </button>
             </fieldset>
-            <button type="submit">{formIcon}</button>
+            <button className="form-submit-button" type="submit">
+              {formIcon}
+            </button>
           </div>
         </form>
       </section>

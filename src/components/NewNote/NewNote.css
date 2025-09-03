@@ -53,7 +53,7 @@
 
     textarea {
       resize: both;
-      min-width: 400px;
+      min-width: 420px;
       max-width: 600px;
       min-height: 200px;
       max-height: 450px;
@@ -79,9 +79,11 @@
       bottom: 0;
 
       fieldset {
+        position: relative;
         border: none;
         display: flex;
         gap: 0.5em;
+        padding-right: 35px;
       }
 
       label {
@@ -102,7 +104,22 @@
         background-color: rgba(var(--color-recurring), 0.35);
       }
 
-      button {
+      .form-event-button {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        padding: 0 2px;
+        border: none;
+        border-radius: 6px;
+        background: rgba(255, 105, 180, 0.5);
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(255, 105, 180, 0.65);
+        }
+      }
+
+      .form-submit-button {
         font: 1.2em sans-serif;
         width: 2.4em;
         height: 2.4em;
@@ -114,15 +131,22 @@
         margin-bottom: 2px;
 
         .new-note-check-icon path {
-          stroke: rgba(0, 0, 0, 0.6);
+          stroke: rgba(0, 0, 0, 0.7);
         }
 
         .new-note-edit-icon {
-          fill: rgba(0, 0, 0, 0.6);
+          fill: rgba(0, 0, 0, 0.7);
         }
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0.3);
+          background-color: rgba(255, 255, 255, 0.4);
+
+          .new-note-check-icon path {
+            stroke: rgba(0, 0, 0, 0.8);
+          }
+          .new-note-edit-icon {
+            fill: rgba(0, 0, 0, 0.8);
+          }
         }
       }
     }

@@ -2,9 +2,10 @@ import axios from "axios";
 import type { Note } from "../types";
 
 export async function editNote(note: Note): Promise<string> {
+  return "Note edited successfully";
   try {
     const result = await axios.put(
-      `http://localhost:3000/tasks/${note.id}`,
+      `${process.env.API_NOTES}/events/${note.id}`,
       note
     );
     if (result.status === 200) {

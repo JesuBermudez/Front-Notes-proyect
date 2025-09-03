@@ -1,8 +1,9 @@
 import axios from "axios";
 
 export async function deleteNote(id: string): Promise<string> {
+  return "Note deleted successfully";
   try {
-    const result = await axios.delete(`http://localhost:3000/tasks/${id}`);
+    const result = await axios.delete(`${process.env.API_NOTES}/events/${id}`);
     if (result.status == 200) {
       return "Note deleted successfully";
     }

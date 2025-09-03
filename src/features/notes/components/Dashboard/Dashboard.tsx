@@ -15,7 +15,9 @@ export default function Dashboard({ notes, toggleNewNote }: DashboardProps) {
         <button onClick={() => toggleNewNote()}>+</button>
       </section>
 
-      <NoteList notes={notes} toggleNewNote={toggleNewNote} />
+      {notes.length !== 0 && (
+        <NoteList notes={notes} toggleNewNote={toggleNewNote} />
+      )}
     </main>
   );
 }
