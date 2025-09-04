@@ -15,14 +15,16 @@ export default function App() {
   useEffect(() => {
     async function fetchNotes() {
       const notes = await getNotes();
+
       setNotes(
         notes.sort((a, b) => {
           const order = priorityOrder[a.type] - priorityOrder[b.type];
           if (order !== 0) return order;
-          return a.title.localeCompare(b.title);
-        })
+          return a.description.localeCompare(b.description);
+        }),
       );
     }
+
     fetchNotes();
   }, []);
 
@@ -31,7 +33,7 @@ export default function App() {
       setNotes((prevNotes) => [note, ...prevNotes]);
     } else {
       setNotes((prevNotes) =>
-        prevNotes.map((n) => (n.id === note.id ? note : n))
+        prevNotes.map((n) => (n.id === note.id ? note : n)),
       );
     }
   }

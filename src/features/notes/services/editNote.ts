@@ -5,8 +5,8 @@ export async function editNote(note: Note): Promise<string> {
   return "Note edited successfully";
   try {
     const result = await axios.put(
-      `${process.env.API_NOTES}/events/${note.id}`,
-      note
+      `${import.meta.env.VITE_API_NOTES}/events/${note.id}`,
+      note,
     );
     if (result.status === 200) {
       return "Note edited successfully";

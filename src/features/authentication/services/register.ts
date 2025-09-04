@@ -1,10 +1,10 @@
 export default async function register(
   name: string,
   email: string,
-  pass: string
+  pass: string,
 ) {
   try {
-    const response = await fetch(`${process.env.API_AUTH}/register`, {
+    const response = await fetch(`${import.meta.env.VITE_API_AUTH}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

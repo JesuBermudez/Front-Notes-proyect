@@ -20,7 +20,7 @@ export default function Register() {
     const response = await register(
       formData.name,
       formData.email,
-      formData.password
+      formData.password,
     );
     if (response !== "Registration successful")
       return alert("Ocurrió un error, intente de nuevo");

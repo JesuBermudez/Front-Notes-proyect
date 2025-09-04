@@ -2,10 +2,10 @@ import type { User } from "../../notes/types";
 
 export default async function login(
   email: string,
-  pass: string
+  pass: string,
 ): Promise<User | string> {
   try {
-    const response = await fetch(`${process.env.API_AUTH}/login`, {
+    const response = await fetch(`${import.meta.env.VITE_API_AUTH}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
